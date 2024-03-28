@@ -1,0 +1,17 @@
+#PulsantiSP {
+	-fx-font-size: 20px;
+	
+	-fx-background-color: red;
+	
+	-fx-text-fill: white;
+	
+	-fx-background-radius: 15px;
+}
+#sfondoSP{
+	-fx-background-image: url("sfondo.jpg");
+}
+#Titolo{
+	-fx-text-fill: yellow;
+	
+	-fx-font:italic bold 80px "Arial Black";
+}
