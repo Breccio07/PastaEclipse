@@ -5,12 +5,15 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class SprintRacers extends Application{
 
-	@Override
+	
+	
 	public void start(Stage finestra) {
 		
 		GridPane griglia= new GridPane();
@@ -54,14 +57,45 @@ public class SprintRacers extends Application{
 		
 	}
 	
+	public class SecondaFinestra extends Stage {
+		
+		public SecondaFinestra() {
+			
+			GridPane griglia= new GridPane();
+			
+			griglia.setVgap(10);
+			griglia.setHgap(10);
+			
+			Scene scene= new Scene(griglia ,610,350);
+			setTitle("SecondaFinestra");
+			setScene(scene);
+			
+			Image ComWASD = new Image(getClass().getResourceAsStream("ComWASD.png"));
+			Image ComFreccie = new Image(getClass().getResourceAsStream("ComFreccie.png"));
+			
+			ImageView iWASD= new ImageView(ComWASD);
+			ImageView iFreccie= new ImageView(ComFreccie);
+			
+			Label lGiocatore1= new Label("Comandi Giocatore 1:");
+			Label lGiocatore2= new Label("Comandi Giocatore 2:");
+			
+			griglia.add(lGiocatore1, 0, 0);
+			griglia.add(lGiocatore2, 1, 0);
+			griglia.add(iWASD, 0, 1);
+			griglia.add(iFreccie, 1, 1);
+			
+		}
+	}
 	private void Comandi() {
 		
+		SecondaFinestra finestra= new SecondaFinestra();
 		
-		
+		finestra.showAndWait();
+			
 	}
+		
 	
 	public static void main(String[] args) {
 		launch(args);
 	}
-
 }
