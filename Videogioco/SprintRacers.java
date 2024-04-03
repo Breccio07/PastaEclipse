@@ -61,7 +61,7 @@ public class SprintRacers extends Application{
 	
 	public class Macchina extends Stage {
 		
-		Hashtable <Integer,ImageView> SceltaMacchine =  new Hashtable <Integer,ImageView>();
+		Hashtable <Integer,Image> SceltaMacchine =  new Hashtable <Integer,Image>();
 		
 		Image AlfaRomeo = new Image(getClass().getResourceAsStream("AlfaRomeo.png"));
 		Image AlphaTauri = new Image(getClass().getResourceAsStream("AlphaTauri.png"));
@@ -74,33 +74,26 @@ public class SprintRacers extends Application{
 		Image RB = new Image(getClass().getResourceAsStream("RB.png"));
 		
 		ImageView iAlfaRomeo= new ImageView(AlfaRomeo);
-		ImageView iAlphaTauri= new ImageView(AlphaTauri);
-		ImageView iAlpine= new ImageView(Alpine);
-		ImageView iAstonMartin= new ImageView(AstonMartin);
-		ImageView iFerrari= new ImageView(Ferrari);
-		ImageView iHaas= new ImageView(Haas);
-		ImageView iMcLaren= new ImageView(McLaren);
-		ImageView iMercedes= new ImageView(Mercedes);
-		ImageView iRB= new ImageView(RB);
-		
-		GridPane griglia= new GridPane();
 		
 		public Macchina() {
 			
-			SceltaMacchine.put(0, iAlfaRomeo);
-			SceltaMacchine.put(1, iAlphaTauri);
-			SceltaMacchine.put(2, iAlpine);
-			SceltaMacchine.put(3, iAstonMartin);
-			SceltaMacchine.put(4, iFerrari);
-			SceltaMacchine.put(5, iHaas);
-			SceltaMacchine.put(6, iMcLaren);
-			SceltaMacchine.put(7, iMercedes);
-			SceltaMacchine.put(8, iRB);
+			SceltaMacchine.put(0, AlfaRomeo);
+			SceltaMacchine.put(1, AlphaTauri);
+			SceltaMacchine.put(2, Alpine);
+			SceltaMacchine.put(3, AstonMartin);
+			SceltaMacchine.put(4, Ferrari);
+			SceltaMacchine.put(5, Haas);
+			SceltaMacchine.put(6, McLaren);
+			SceltaMacchine.put(7, Mercedes);
+			SceltaMacchine.put(8, RB);
 			
+			GridPane griglia= new GridPane();
 			griglia.setVgap(10);
 			griglia.setHgap(10);
+			griglia.setId("GP");
 			
-			Scene scene= new Scene(griglia ,610,350);
+			
+			Scene scene= new Scene(griglia );
 			setTitle("Macchina G1");
 			setScene(scene);
 			
@@ -125,15 +118,20 @@ public class SprintRacers extends Application{
 			
 			i++;
 			
-			griglia.add(SceltaMacchine.get(i), 1, 1);
+			if(i > 8) {
+				i=0;
+			}
 			
+			iAlfaRomeo.setImage(SceltaMacchine.get(i));
 		}
 		private void Indietro() {
 			
 			i--;
 			
-			griglia.add(SceltaMacchine.get(i), 1, 1);
-			
+			if(i < 0) {
+				i=8;
+			}
+			iAlfaRomeo.setImage(SceltaMacchine.get(i));
 		}
 	}
 	
